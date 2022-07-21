@@ -82,6 +82,7 @@ fn process_reader(reader: impl BufRead, config: &Config) -> CliResult<()> {
             let all_pos = unique_indices(positions);
             let mut csv_reader = csv::ReaderBuilder::new()
                 .delimiter(config.delimiter)
+                .has_headers(false)
                 .from_reader(reader);
             let mut csv_writer = csv::WriterBuilder::new()
                 .delimiter(config.delimiter)
@@ -96,8 +97,6 @@ fn process_reader(reader: impl BufRead, config: &Config) -> CliResult<()> {
                 csv_writer.write_record(None::<&[u8]>)?;
                 Ok(())
             };
-
-            printer(&mut csv_reader.headers()?)?;
 
             for result in csv_reader.records() {
                 let record = result?;
@@ -172,7 +171,7 @@ pub fn parse_config(cmd_args: Vec<String>) -> CliResult<Config> {
         .collect();
 
     let delimiter = matches.get_one::<String>("delimiter").unwrap().to_owned();
-    if delimiter.bytes().count() != 1 {
+    if delimiter.len() != 1 {
         return Err("kat: bad delimiter".into());
     }
 
