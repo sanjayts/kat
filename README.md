@@ -1,3 +1,5 @@
+![GitHub CI](https://github.com/sanjayts/kat/actions/workflows/ci.yml/badge.svg)
+
 # kat (cut variation in Rust)
 A variation of `cut` command implemented in Rust as part of reading "Command line rust" book. This repo uses the latest version of clap which has a different API compared to the API used in the book.
 
