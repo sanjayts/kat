@@ -1,4 +1,5 @@
 ![GitHub CI](https://github.com/sanjayts/kat/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/sanjayts/kat/branch/master/graph/badge.svg?token=XNJAFFE5QH)](https://codecov.io/gh/sanjayts/kat)
 
 # kat (cut variation in Rust)
 A variation of `cut` command implemented in Rust as part of reading "Command line rust" book. This repo uses the latest version of clap which has a different API compared to the API used in the book.
@@ -45,10 +46,19 @@ cargo test --test cli # run integration tests in cli.rs
 
 # Future enhancements
 
-1. Add support for zero terminated line delimiter (NUL byte)
-2. Add support for not printing lines which don't have the delimiter
-3. Add support for specifying a custom output delimiter
+1. Improve test coverage
+2. Add support for zero terminated line delimiter (NUL byte)
+3. Add support for not printing lines which don't have the delimiter
+4. Add support for specifying a custom output delimiter
 
+# Code Coverage
+
+Code coverage is done as part of CI builds using tarpaulin. The reports can be found at [Codecov](https://app.codecov.io/gh/sanjayts/kat/blob/master/src/lib.rs)
+The next steps would be to:
+
+1. Try uploading the coverage results to [Coveralls](https://coveralls.io/)
+2. Use [grcov](https://github.com/actions-rs/grcov) which is a coverage tool used by Mozilla
+3. Generate release artifacts and build on multiple platforms ([A sample workflow](https://github.com/himanoa/mdmg/blob/master/.github/workflows/rust.yml))
 
 # Reference
 
