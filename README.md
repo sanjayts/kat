@@ -52,3 +52,4 @@ cargo test --test cli # run integration tests in cli.rs
 
 * https://docs.rs/csv/1.0.0-beta.2/csv/struct.Writer.html
 * https://man7.org/linux/man-pages/man1/cut.1.html
+* For setting up github pipeline for Rust -- https://github.com/actions-rs/meta/tree/master/recipes
